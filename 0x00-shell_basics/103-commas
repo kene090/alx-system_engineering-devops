@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a
+ls -a | awk -F/ '{ printf("%s%s', ($NF ~ /^\.{$NF ~ /^\.{1,2}$/ ? "\n" : ""), $NF) }' | LC_COLLATE=C sort -d -k1.1,11 -k1.2n,1.2 | paste -sd ","
